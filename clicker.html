@@ -1,0 +1,53 @@
+<head>
+    <title>Clicker</title>
+    <audio id="click-sound" src="/Goodie bag/click.mp3" preload="auto"></audio>
+    <style> 
+        body {
+            background-color: white;
+            text-align: center;
+        }
+    
+        button {
+            background-color: black;
+            border: 4px;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 12px;
+            transition: transform 0.2s ease-in-out;
+        }
+    
+        button:hover {
+            transform: scale(1.1);
+        }
+    
+        button:active {
+            transform: scale(0.85);
+            transition: transform 0.1s ease;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Welcome to the clicker game!</h1>
+    <a href="games.html">
+        <button onclick="playClickSFX()">Came here accidentally? Go back to the games selection menu here!</button>
+    </a>
+    <br>
+    <br>
+    <button onclick="playClickSFX(), incrementClickCount()">Click me!</button>
+    <p>Clicks: <span id="clickCount">0</span></p>
+    <script>
+        function playClickSFX(){
+            let audio = document.getElementById("click-sound");
+            audio.pause();
+            audio.currentTime = 0;
+            audio.play();
+        }
+        
+        function incrementClickCount() {
+            let clickCountElement = document.getElementById("clickCount");
+            let currentCount = parseInt(clickCountElement.innerText);
+            currentCount++;
+            clickCountElement.innerText = currentCount;
+        }
+    </script>
